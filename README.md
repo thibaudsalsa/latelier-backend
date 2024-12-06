@@ -23,7 +23,6 @@ cd your-project-folder
 
 2. Install the dependencies:
 
-you also need nodejs v18.8.0
 ```bash
 npm install
 ```
@@ -49,6 +48,25 @@ npm run build
 ```bash
 npm run run-docker
 ```
+
+## Testing
+
+you can run end to end tests using
+```bash
+npm run test
+```
+
+## Endpoints
+
+the 3 endpoints are
+
+GET /players
+GET /player:id
+GET /players-analystics
+
+and the port is 3002.
+
+you can test also only with this url:
 
 
 Thibaud Salsa
