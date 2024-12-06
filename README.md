@@ -67,6 +67,10 @@ GET /players-analystics
 and the port is 3002.
 
 you can test also only with this url:
+http://45.145.166.3:3002
 
+http://45.145.166.3:3002/players
+http://45.145.166.3:3002/player
+http://45.145.166.3:3002/players-analystics
 
 Thibaud Salsa
