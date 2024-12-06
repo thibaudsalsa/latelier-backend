@@ -39,10 +39,9 @@ export class PlayersService {
         ratio: 0
       },
       averageImc: 0,
-      mHeight: this.computeMedian(this.database.map(player => player.data.height))
+      mHeight: this.computeMedian(this.database.map(player => player.data.height)) / 100 // in meters
     }
     this.database.forEach((player) => {
-      const playerImc = (player.data.weight / player.data.height) * player.data.height;
       // if we don't know yet this country we set it up
       if (!countryList[player.country.code]) {
         countryList[player.country.code] = {
@@ -61,7 +60,7 @@ export class PlayersService {
       if (!bestCountry || bestCountry.ratio < countryList[player.country.code].ratio) {
         bestCountry = countryList[player.country.code];
       }
-      metrics.averageImc += playerImc;
+      metrics.averageImc += (player.data.weight / 1000) / ((player.data.height / 100) * (player.data.height / 100)); // convert into kg and meters
     });
 
     metrics.bestCountry = bestCountry;
