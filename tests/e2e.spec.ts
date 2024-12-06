@@ -68,12 +68,12 @@ describe("GET /players-analystics", () => {
     expect(res.statusCode).toBe(200);
   });
 
-  it("should return the metrics in lest than half a second", async () => {
+  it("should return the metrics in less than 200ms", async () => {
     const startTime = (new Date()).getTime();
     const res = await request(app).get("/players-analystics");
     const endTime = (new Date()).getTime();
     expect(res.statusCode).toBe(200);
-    expect(endTime - startTime).toBeLessThan(500);
+    expect(endTime - startTime).toBeLessThan(200);
   });
 });
 

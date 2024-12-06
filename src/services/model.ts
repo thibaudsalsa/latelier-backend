@@ -21,8 +21,19 @@ export type Player = {
 
 
 export type PlayersAnalytics = {
-
+  bestCountry: {
+    code: string;
+    picture: string;
+    playersNb: number;
+    victories: number;
+    ratio: number
+  };
+  averageImc: number;
+  mHeight: number;
 };
+
+export type CountryData = { code: string; picture: string; playersNb: number; victories: number, ratio: number };
+export type CountryList =  Record<string, CountryData>;
 
 export const PLAYER_DATABASE_PATH = "";
 export const FILE_ENCODING = "utf-8";
