@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "build": "docker build -t technical-test .",
+    "run-docker": "docker run -p 3002:3002 technical-test"
   },
   "repository": {
     "type": "git",
