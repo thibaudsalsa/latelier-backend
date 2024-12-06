@@ -17,10 +17,10 @@ app.get('/players', (req: Request, res: Response) => {
 
 app.get('/player/:id', (req: Request, res: Response) => {
   try {
-    const playerId = parseInt(req.params.id, 10);
+    const playerId = +req.params.id;
     const player = playersService.getPlayerById(playerId);
     if (!player) {
-      res.status(RequestStatusCode.NOT_FOUND);
+      res.status(RequestStatusCode.NOT_FOUND).send({});
     } else {
       res.status(RequestStatusCode.OK).send(player);
     }
@@ -40,6 +40,6 @@ app.get('/players-analystics', (req: Request, res: Response) => {
 });
 
 // Démarrer le serveur
-app.listen(PORT, () => {
+export const server = app.listen(PORT, () => {
     console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });
