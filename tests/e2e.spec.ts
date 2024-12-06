@@ -55,6 +55,11 @@ describe("GET /player/:id", () => {
     const res = await request(app).get("/player/5552");
     expect(res.statusCode).toBe(404);
   });
+
+  it("get player without id", async () => {
+    const res = await request(app).get("/player");
+    expect(res.statusCode).toBe(404);
+  });
 });
 
 describe("GET /players-analystics", () => {
